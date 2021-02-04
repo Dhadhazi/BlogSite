@@ -1,7 +1,20 @@
 import React from "react";
 import { graphql } from "gatsby";
+import { MDXRenderer } from "gatsby-plugin-mdx";
+import Layout from "../components/Layout";
 
-const BlogPostPage = ({ data }) => <h1>{data.mdx.frontmatter.title}</h1>;
+const BlogPostPage = ({ data }) => {
+  const post = data.mdx;
+
+  return (
+    <Layout>
+      <article>
+        <h1>{post.frontmatter.title}</h1>
+        <MDXRenderer>{post.body}</MDXRenderer>
+      </article>
+    </Layout>
+  );
+};
 
 export const query = graphql`
   query BlogPostById($id: String) {
@@ -9,6 +22,7 @@ export const query = graphql`
       frontmatter {
         title
       }
+      body
     }
   }
 `;
