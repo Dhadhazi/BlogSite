@@ -14,5 +14,11 @@ module.exports = {
       },
     },
     `gatsby-plugin-mdx`,
+    {
+      resolve: `gatsby-plugin-theme-ui`,
+      options: {
+        preset: `@theme-ui/preset-funk`,
+      },
+    },
   ],
 };
