@@ -4,5 +4,15 @@ module.exports = {
     description: "This is a blog site",
     twitter: "someoneshandle",
   },
-  plugins: ["gatsby-plugin-react-helmet"],
+  plugins: [
+    "gatsby-plugin-react-helmet",
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/posts`,
+        name: `posts`,
+      },
+    },
+    `gatsby-plugin-mdx`,
+  ],
 };
